@@ -18,11 +18,17 @@ work from an initial idea through completion.
 - pnpm
 - GitHub Actions
 
-## Planned v1.0 scope
+## Features
 
-Version 1.0 is planned to support creating, editing, deleting, and moving tasks
-between the four workflow stages, with data stored in the browser through
-`localStorage`.
+- Create tasks with a title, optional description, and priority
+- Edit task details or cancel an edit without changing the task
+- Move tasks between Backlog, In Progress, Review, and Done
+- Delete tasks after confirmation
+- Track task counts in each fixed workflow stage
+- Restore the board from browser `localStorage`
+
+Stored data is validated before use. Missing, corrupted, incompatible, or
+unavailable browser storage falls back to a safe empty or session-only board.
 
 ## Local development
 
@@ -52,8 +58,12 @@ pnpm build
 
 ## Current status
 
-The project is at S0 foundation. It includes the application shell, an empty
-four-column board, build tooling, baseline tests, and continuous integration.
+The core v1.0 task workflow is implemented locally. The project includes unit
+tests for state and persistence, interface tests for the main user flows, build
+tooling, and a GitHub Actions workflow for continuous integration.
 
-Task creation, editing, deletion, movement, persistence, filters, and
-drag-and-drop are not implemented yet.
+## Limitations
+
+Data remains in the current browser and is not synchronized between devices.
+Drag-and-drop, search, filters, custom columns, due dates, accounts, and cloud
+sync are outside the v1.0 scope.
