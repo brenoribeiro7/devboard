@@ -31,7 +31,7 @@ provides one focused workflow that runs entirely in the browser.
 
 ## Getting Started
 
-Prerequisites: Node.js 22.23.1 or a compatible release, and pnpm 11.12.0.
+Prerequisites: Node.js 22.23.1 or a compatible release, and pnpm 11.21.0.
 
 ```bash
 pnpm install --frozen-lockfile
