@@ -1,59 +1,77 @@
 # DevBoard
 
-DevBoard is a small frontend application for keeping personal development tasks
-organized across four stages: Backlog, In Progress, Review, and Done.
+DevBoard is a small, local-first task board for personal development work. It
+keeps tasks visible across Backlog, In Progress, Review, and Done.
 
-## Objective
+## Problem
 
-The project aims to provide a focused local workspace for following development
-work from an initial idea through completion.
+Personal development tasks are often scattered across notes and tools, making
+it difficult to see what needs attention and what is already complete. DevBoard
+provides one focused workflow that runs entirely in the browser.
+
+## Features
+
+- Four fixed workflow columns with per-column task counts
+- Task creation with a required title, optional description, and priority
+- Task editing with a cancel option
+- Low, medium, and high priorities shown with text and color
+- Task movement between any workflow states
+- Deletion with confirmation
+- Responsive, keyboard-accessible controls
+- Safe restoration from browser storage
 
 ## Stack
 
 - React and TypeScript
-- Vite
-- Tailwind CSS
+- Vite and Tailwind CSS
 - Vitest, React Testing Library, and jsdom
 - ESLint
 - pnpm
 - GitHub Actions
 
-## Planned v1.0 scope
+## Getting Started
 
-Version 1.0 is planned to support creating, editing, deleting, and moving tasks
-between the four workflow stages, with data stored in the browser through
-`localStorage`.
-
-## Local development
-
-Requirements: Node.js 22.23.1 or a compatible release, and pnpm 11.12.0.
+Prerequisites: Node.js 22.23.1 or a compatible release, and pnpm 11.21.0.
 
 ```bash
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-## Validation
+Vite serves the application at `http://localhost:5173` by default.
 
-Run all local quality gates:
-
-```bash
-pnpm check
-```
-
-Individual commands are also available:
+## Development
 
 ```bash
+pnpm install --frozen-lockfile
+pnpm dev
 pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
+pnpm check
 ```
 
-## Current status
+`pnpm check` runs linting, type checking, tests, and the production build.
 
-The project is at S0 foundation. It includes the application shell, an empty
-four-column board, build tooling, baseline tests, and continuous integration.
+## Persistence
 
-Task creation, editing, deletion, movement, persistence, filters, and
-drag-and-drop are not implemented yet.
+Tasks are stored under `devboard.tasks.v1` in the current browser profile's
+`localStorage`. Data is not synchronized between browsers or devices, and
+browser storage can be cleared by the user or browser. Do not use DevBoard to
+store sensitive data.
+
+Missing, corrupted, incompatible, or unavailable storage degrades safely to an
+empty or session-only board.
+
+## Testing
+
+The automated suite covers task creation, validation, editing, movement,
+deletion, timestamps, column counts, persistence, restoration, invalid stored
+data, and unavailable storage.
+
+## Current limitations
+
+Version 1.0 has no backend, accounts, authentication, cloud synchronization, or
+collaboration. Drag-and-drop, search, filters, custom columns, due dates, and
+other advanced task features are outside its scope.

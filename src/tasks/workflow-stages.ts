@@ -1,3 +1,12 @@
+import type { TaskStatus } from './task'
+
+interface WorkflowStage {
+  id: TaskStatus
+  title: string
+  description: string
+  accentClass: string
+}
+
 export const workflowStages = [
   {
     id: 'backlog',
@@ -6,7 +15,7 @@ export const workflowStages = [
     accentClass: 'bg-violet-500',
   },
   {
-    id: 'in-progress',
+    id: 'in_progress',
     title: 'In Progress',
     description: 'Work currently being developed.',
     accentClass: 'bg-blue-500',
@@ -23,4 +32,4 @@ export const workflowStages = [
     description: 'Completed development work.',
     accentClass: 'bg-emerald-500',
   },
-] as const
+] as const satisfies readonly WorkflowStage[]
