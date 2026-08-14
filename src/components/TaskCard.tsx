@@ -37,7 +37,7 @@ export function TaskCard({ task, onEdit, onMove, onDelete }: TaskCardProps) {
       <div className="flex items-start justify-between gap-3">
         <h4
           id={titleId}
-          className="min-w-0 text-sm font-semibold leading-5 text-slate-950"
+          className="min-w-0 break-words text-sm font-semibold leading-5 text-slate-950"
         >
           {task.title}
         </h4>
